@@ -1,7 +1,13 @@
 <% provide(title: "Events")%>
 <div class="col-md-8">
-    <h3>Events (<%= @events.count %>)</h3>
+    <h3>Upcoming Events (<%= @events.upcoming.count %>)</h3>
     <ol class="microposts">
-      <%= render @events %>
+      <%= render @events.upcoming %>
+    </ol>
+</div>
+<div class="col-md-8">
+    <h3>Past Events (<%= @events.previous.count %>)</h3>
+    <ol class="microposts">
+      <%= render @events.previous %>
     </ol>
 </div>

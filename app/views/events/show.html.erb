@@ -5,4 +5,16 @@
     <h1><%= @event.creator.name %></h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <h3><%= @event.title %></h3>
+    <h4><%= @event.description %></h4>
+    <h5><%= @event.location %></h5>
+    <h5><%= @event.date %></h5>
+    <% if @event.attendees.any? %>
+    <h3>Attendees (<%= @event.attendees.count %>)</h3>
+    <ol class="microposts">
+      <%= render @event.attendees %>
+    </ol>
+    <% end %>
+  </div>
 </div>
