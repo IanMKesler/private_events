@@ -1,0 +1,10 @@
+<li id="<%= event.id %>">
+  <span class="user"><%= link_to event.creator.name, event.creator %></span>
+  <span class="content">
+    <%= link_to event.title, event %>
+  </span>
+  <span class="timestamp">
+    Location: <%= event.location %>,
+    Date:  <%= event.date %> .
+  </span>
+</li>

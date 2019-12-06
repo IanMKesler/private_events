@@ -8,6 +8,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             flash[:success] = "Account created"
+            login(@user)
             redirect_to @user
         else
             render 'new'
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @created_events = @user.created_events.all
     end
 
     private
