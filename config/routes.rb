@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   post 'sessions/new', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   post '/events/new', to: "events#create"
+  post '/invitations/new', to: "invitations#create"
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :events, only: [:new, :create, :show, :index]
+  resources :invitations, only: [:new, :create, :destroy, :index]
 end

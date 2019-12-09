@@ -1,0 +1,10 @@
+<%= form_for(:invitation, url: yield(:url)) do |f| %>
+
+  <%= f.label :event %>
+  <%= f.select :event_id, options_for_select(@upcoming_events.collect{ |e| [e.title, e.id] }, class: 'form-control')%>
+
+  <%= f.label "User email" %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
