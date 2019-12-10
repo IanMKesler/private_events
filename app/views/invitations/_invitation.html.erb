@@ -1,0 +1,12 @@
+<li id="<%= invitation.id %>">
+  <span class="user"><%= link_to invitation.inviter.name, invitation.inviter%></span>
+  <span class="content">
+    <%= link_to invitation.event.title, invitation.event  %>
+    <%= button_to "Accept", controller: "attendings", action: "create", invitation_id: invitation.id, method: :post %>
+    <%= button_to "Decline", invitation, method: :delete %>
+  </span>
+  <span class="timestamp">
+    Location: <%= invitation.event.location %>,
+    Date:  <%= invitation.event.date %> .
+  </span>
+</li>

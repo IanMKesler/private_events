@@ -1,0 +1,17 @@
+<% provide(:title, "Invitations") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+    <h1><%= current_user.name %></h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @invites.any? %>
+    <h3>Pending Invitations (<%= @invites.count %>)</h3>
+    <ol class="microposts">
+
+      <%= render @invites %>
+    </ol>
+    <% end %>
+  </div>
+</div>

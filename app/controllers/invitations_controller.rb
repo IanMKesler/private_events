@@ -19,7 +19,18 @@ class InvitationsController < ApplicationController
         end
     end
 
+    def destroy
+        Invitation.find(params[:id]).destroy
+        flash[:success] = "Invitation declined"
+        redirect_to invitations_path(current_user)
+    end
 
+    def index
+        @invites = current_user.invitations
+        @events = @invites.map { |invite|
+            Event.find(invite.event_id)
+        }
+    end
     private
         def invite_params
             temp = params.require(:invitation).permit(:event_id, :email)
